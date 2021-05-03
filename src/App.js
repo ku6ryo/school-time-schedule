@@ -2,8 +2,6 @@ import { useState, } from "react"
 import './App.css';
 import style from "./App.module.scss";
 
-const timeTable = []
-
 function createSlot(name, teacher) {
   return {
     name,
@@ -71,11 +69,19 @@ function App() {
     setSlotIndex(slotIndex)
   }
 
+  /**
+   * 保存データをスロットに設定する
+   */
   const onSave = (data) => {
     const slot = slotMatrix[dayIndex][slotIndex]
     slot.name = data.name
     slot.teacher = data.teacher
-    setSlotMatrix(slotMatrix.map(day => [...day]))
+    setSlotMatrix(slotMatrix)
+    /* 配列を作り直す場合は以下のコードを使う
+    setSlotMatrix(
+      slotMatrix.map(day => day.map(slot => slot))
+    )
+    */
     setDayIndex(null)
     setSlotIndex(null)
   }
