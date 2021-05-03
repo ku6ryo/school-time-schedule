@@ -1,0 +1,14 @@
+
+.slot {
+  border: 1px solid;
+  cursor: pointer;
+  padding: 10px;
+
+  &:hover {
+    background: red;
+  }
+
+  &.editing {
+    background: blue;
+  }
+}
